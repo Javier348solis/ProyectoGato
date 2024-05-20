@@ -1,11 +1,32 @@
+
 .tablero{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     border: 1px solid;
-        grid-gap: 20px;
+        grid-gap:  0px;
+        border: 1px solid yellowgreen;
+        width: 400px;
+        height: 400px;
+    position: absolute;
+    left: 550px;
+    box-shadow: 0px 0px 200px rgb(42, 3, 218);
 }
 .celda{
-    border: 1px solid #000;
-    width: 100px;
-    height: 100px   ;
+    border: 1px solid yellowgreen; 
+    
+}
+.titulo {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+body {
+    background-image: url(/src/img/tree-736877_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#boton {
+    border: 1px solid silver;
+    margin-top: 445px;
+    margin-left: 710px;
 }
