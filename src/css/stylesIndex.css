@@ -1,3 +1,7 @@
+body{
+    color: #ffff;
+}
+
 
 .tablero{
     display: grid;
@@ -30,3 +34,4 @@ body {
     margin-top: 445px;
     margin-left: 710px;
 }
+ 

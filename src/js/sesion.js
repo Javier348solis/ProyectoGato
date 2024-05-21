@@ -14,6 +14,7 @@ btn.addEventListener("click", function (e) {
     }
     usersGame.push(user)
     console.log(usersGame)
+    window.location.href= "index.html"  
     alert("Succesfully registered user")
     
 
