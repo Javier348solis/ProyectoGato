@@ -15,3 +15,7 @@ boton.addEventListener("click", function (e) {
     e.preventDefault
 }) 
 let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrados5, cuadrados6, cuadrados7, cuadrados8]
+cuadrados0.addEventListener("click", function (e) {
+    e.preventDefault
+    return "x"
+})
