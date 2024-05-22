@@ -50,3 +50,30 @@ let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrado
    function mostrarGanador() {
     
    }
+  
+
+
+
+
+
+
+   let idioma = document.getElementById("valorIdioma")
+   let descri = document.getElementById("descri")
+   let turnoDe = document.getElementById("turnoDe")
+    let textoING="Welcome, are you ready to defeat Michi Pepe? Welcome, are you ready to defeat Michi Pepe?. First you must know the basic rules: 1. You have to choose between the *x* or *o*. 2. You can't cheat. 2. You can't cheat. 3. If you have three *X's* or *O's* either horizontally, vertically or diagonally, you win! Good luck..."
+    let textESP ="Bienvenido, estas listo para derrotar al Michi Pepe? Primero debes de saber las reglas básicas: 1. Tienes que escoger entre la *x* or *o*. 2. No puedes hacer trampa. 3. Si tienes tres *X* o *O* bien sea horizontal, vertical o diagonalmente, tu ganas!. Buena suerte..."
+    let textturnoESP = "Turno de" 
+    let textturnoENG = "Turn of" 
+   idioma.addEventListener("change",()=>{
+       const valorIdioma = idioma.value
+       console.log(valorIdioma);
+    if (valorIdioma=="esp") {
+        descri.innerHTML=textESP
+        turnoDe.innerHTML=textturnoESP
+    }else{
+        descri.innerHTML=textoING
+        turnoDe.innerHTML=textturnoENG
+
+    }
+   })
+  

@@ -19,6 +19,9 @@ body{
     border: 1px solid yellowgreen; 
     
 }
+.textoCambiar{
+    display: none;
+}
 .titulo {
     display: flex;
     justify-content: center;
@@ -31,7 +34,37 @@ body {
 }
 #boton {
     border: 1px solid silver;
-    margin-top: 445px;
-    margin-left: 710px;
+    margin-top: 430px;
+    margin-left: 630px;
 }
- 
+#titu {
+   color: white;
+   margin-top: -5px;
+   margin-left: px;
+}
+#descri{
+    color: white;
+    text-align: center;
+}
+.Rules {
+    border: 1px solid blue;
+    text-align: center;
+    width: 800px;
+
+}
+.contenedor1 {
+    display: flex;
+    justify-content: center;
+}
+.contenedor-turnos {
+    width: 200px;
+    height: 80px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.contenedor-turnos h4{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
