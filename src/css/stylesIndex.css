@@ -56,6 +56,13 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor-turnos {
     width: 200px;
     height: 80px;
@@ -63,8 +70,38 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    position: relative;
 }
 .contenedor-turnos h4{
+    margin: 0;
     grid-column-start: 1;
     grid-column-end: 3;
+}
+.contenedor-turnos .Turno{
+    border: 3px solid yellowgreen;
+    font-size: 1.5rem;
+    margin-top: -20px;
+    font-weight: 700;
+
+}
+.contenedor-turnos .Turno:nth-child(even){
+    border-right: none;
+}
+.js {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100px;
+   height: 60px;
+   background-color: aqua;
+   z-index: -1;
+}
+.js2{
+    position: absolute;
+   bottom: 0;
+   left: 100px;
+   width: 100px;
+   height: 60px;
+   background-color: aqua;
+   z-index: -1;
 }

@@ -20,11 +20,13 @@ let=isPlayerOne=true
 boton.addEventListener("click", function (e) {
     e.preventDefault
 }) 
+let mostrarCuadrito = document.getElementById("mostrarCuadrito")
 let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrados5, cuadrados6, cuadrados7, cuadrados8]
     for (let index = 0; index < celdas.length; index++) {
         celdas[index].addEventListener("click",userMove)
     }
    function userMove(e) {
+
     let tabla = e.target.innerHTML;
     if(!tabla.length) {
         e.target.innerHTML = isPlayerOne? '❌' : '⭕'
@@ -38,7 +40,23 @@ let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrado
         winner(2,5,8);
         winner(6,4,2);
         winner(8,4,0);
-   }  
+   }
+   if (condition) {
+       pcJuega()  
+   }
+   if (e.target.innerHTML=="❌") {
+    mostrarCuadrito.classList.remove("js2")
+    mostrarCuadrito.classList.add("js")
+   }else if(e.target.innerHTML=="⭕"){
+    mostrarCuadrito.classList.remove("js")
+    mostrarCuadrito.classList.add("js2")
+   }
+   }
+   function pcJuega() {
+    let casillasVacias = Array.from(celdas)
+    casillasVacias.filter(vacias=>vacias.innerHTML=="")
+    let alea  = Math.floor(Math.random() * casillasVacias.length)
+    casillasVacias[alea].innerHTML="⭕" 
    }
    function winner(a, b, c) {
     if (celdas[a].innerHTML.length && celdas[a].innerHTML == celdas[b].innerHTML && celdas[a].innerHTML==celdas[c].innerHTML) {
@@ -47,9 +65,7 @@ let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrado
     }
    }
 
-   function mostrarGanador() {
-    
-   }
+
   
 
 
@@ -60,20 +76,24 @@ let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrado
    let idioma = document.getElementById("valorIdioma")
    let descri = document.getElementById("descri")
    let turnoDe = document.getElementById("turnoDe")
-    let textoING="Welcome, are you ready to defeat Michi Pepe? Welcome, are you ready to defeat Michi Pepe?. First you must know the basic rules: 1. You have to choose between the *x* or *o*. 2. You can't cheat. 2. You can't cheat. 3. If you have three *X's* or *O's* either horizontally, vertically or diagonally, you win! Good luck..."
-    let textESP ="Bienvenido, estas listo para derrotar al Michi Pepe? Primero debes de saber las reglas básicas: 1. Tienes que escoger entre la *x* or *o*. 2. No puedes hacer trampa. 3. Si tienes tres *X* o *O* bien sea horizontal, vertical o diagonalmente, tu ganas!. Buena suerte..."
+   let rules = document.getElementById("rules")
+    let textoING="Welcome, are you ready to defeat Michi Pepe? Welcome, are you ready to defeat Michi Pepe?. First you must know the basic rules: 1. You have to choose between the *❌* or *⭕*. 2. You can't cheat. 2. You can't cheat. 3. If you have three *❌* or *⭕* either horizontally, vertically or diagonally, you win! Good luck..."
+    let textESP ="Bienvenido, estas listo para derrotar al Michi Pepe? Primero debes de saber las reglas básicas: 1. Tienes que escoger entre la *❌* or *⭕*. 2. No puedes hacer trampa. 3. Si tienes tres *❌* o *⭕* bien sea horizontal, vertical o diagonalmente, tu ganas!. Buena suerte..."
     let textturnoESP = "Turno de" 
     let textturnoENG = "Turn of" 
+    let titleING="Rules"
+    let titleESP="Reglas"
    idioma.addEventListener("change",()=>{
        const valorIdioma = idioma.value
        console.log(valorIdioma);
     if (valorIdioma=="esp") {
         descri.innerHTML=textESP
         turnoDe.innerHTML=textturnoESP
+        rules.innerHTML=titleESP
     }else{
         descri.innerHTML=textoING
         turnoDe.innerHTML=textturnoENG
-
+        rules.innerHTML 
     }
    })
   
