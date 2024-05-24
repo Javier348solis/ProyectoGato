@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/src/css/stylesIndex.css">
 </head>
 <body>
+
+<audio src="/audio/Voicy_Mario Kart - Star.mp3" type="audio/mp3"></audio>
+
 <h1 class="titulo">TIC-TAC-TOE  </h1> 
     
 <div class="contenedor-turnos">
@@ -15,7 +18,9 @@
     <div class="Turno align">⭕</div>
     <div id="mostrarCuadrito" class=""></div>
 </div>
-    
+    <div>
+        <button id="changeroles">Cambiar roles</button>
+    </div>
 
     <div class="tablero">
         <div class="celda"  id="ipn0"></div>
@@ -29,7 +34,7 @@
         <div class="celda"  id="ipn8"></div>
     </div>
       <button id="boton">Comenzar</button>
-      <button id="">Reinicio</button>
+      <button onclick="document.location.reload();">Reset</button>
       
     <select id="valorIdioma">
         <option value="ing">Inglés</option>

@@ -41,9 +41,12 @@ let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrado
         winner(6,4,2);
         winner(8,4,0);
    }
-   if (condition) {
-       pcJuega()  
-   }
+  if (true) {
+    pcJuega()
+  } else {
+    
+  }
+   
    if (e.target.innerHTML=="❌") {
     mostrarCuadrito.classList.remove("js2")
     mostrarCuadrito.classList.add("js")
@@ -76,24 +79,24 @@ let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrado
    let idioma = document.getElementById("valorIdioma")
    let descri = document.getElementById("descri")
    let turnoDe = document.getElementById("turnoDe")
-   let rules = document.getElementById("rules")
+   let regla = document.getElementById("regla")
     let textoING="Welcome, are you ready to defeat Michi Pepe? Welcome, are you ready to defeat Michi Pepe?. First you must know the basic rules: 1. You have to choose between the *❌* or *⭕*. 2. You can't cheat. 2. You can't cheat. 3. If you have three *❌* or *⭕* either horizontally, vertically or diagonally, you win! Good luck..."
     let textESP ="Bienvenido, estas listo para derrotar al Michi Pepe? Primero debes de saber las reglas básicas: 1. Tienes que escoger entre la *❌* or *⭕*. 2. No puedes hacer trampa. 3. Si tienes tres *❌* o *⭕* bien sea horizontal, vertical o diagonalmente, tu ganas!. Buena suerte..."
     let textturnoESP = "Turno de" 
     let textturnoENG = "Turn of" 
-    let titleING="Rules"
-    let titleESP="Reglas"
+    let tituloESP="Reglas"
+    let tituloENG="Rules"
    idioma.addEventListener("change",()=>{
        const valorIdioma = idioma.value
        console.log(valorIdioma);
     if (valorIdioma=="esp") {
         descri.innerHTML=textESP
         turnoDe.innerHTML=textturnoESP
-        rules.innerHTML=titleESP
+        regla.innerHTML=tituloESP
     }else{
         descri.innerHTML=textoING
         turnoDe.innerHTML=textturnoENG
-        rules.innerHTML 
+        rules.innerHTML=tituloENG
     }
    })
   
