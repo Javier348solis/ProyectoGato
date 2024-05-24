@@ -1,102 +1,91 @@
-let boton = document.getElementById("boton")
-let ipn = document.getElementById("ipn")
+// Se llama a los objetos para darle funcion a las celdas y a llos botones
+const boton = document.getElementById("boton");
+const ipn = document.getElementById("ipn");
+const cuadrados = Array.from(document.getElementsByClassName("celda"));
+const mostrarCuadrito = document.getElementById("mostrarCuadrito");
+const idioma = document.getElementById("valorIdioma");
+const descri = document.getElementById("descri");
+const turnoDe = document.getElementById("turnoDe");
+const regla = document.getElementById("regla");
+const dosJugadores = document.getElementById("changeroles");
 
-let cuadrados0 = document.getElementById("ipn0")
-let cuadrados1 = document.getElementById("ipn1")
-let cuadrados2 = document.getElementById("ipn2")
-let cuadrados3 = document.getElementById("ipn3")
-let cuadrados4 = document.getElementById("ipn4")
-let cuadrados5 = document.getElementById("ipn5")
-let cuadrados6 = document.getElementById("ipn6")
-let cuadrados7 = document.getElementById("ipn7")
-let cuadrados8 = document.getElementById("ipn8")
-let reini = document.getElementById("reini")
+// Variables de jugadores
+let isPlayerOne = true;
+let activarDosJugadores = false;
 
-let celdas = document.getElementsByClassName("celda")
+// Textos
+const texto = {
+    ING: "Welcome, are you ready to defeat Michi Pepe? Welcome, are you ready to defeat Michi Pepe?. First you must know the basic rules: 1. You have to choose between the *❌* or *⭕*. 2. You can't cheat. 2. You can't cheat. 3. If you have three *❌* or *⭕* either horizontally, vertically or diagonally, you win! Good luck...",
+    ESP: "Bienvenido, estas listo para derrotar al Michi Pepe? Primero debes de saber las reglas básicas: 1. Tienes que escoger entre la *❌* or *⭕*. 2. No puedes hacer trampa. 3. Si tienes tres *❌* o *⭕* bien sea horizontal, vertical o diagonalmente, tu ganas!. Buena suerte...",
+    turnoESP: "Turno de",
+    turnoING: "Turn of",
+    reglaESP: "Reglas",
+    reglaING: "Rules"
+};
 
-let=isPlayerOne=true
-
- 
-boton.addEventListener("click", function (e) {
-    e.preventDefault
-}) 
-let mostrarCuadrito = document.getElementById("mostrarCuadrito")
-let tabla = [cuadrados0, cuadrados1, cuadrados2, cuadrados3,cuadrados4, cuadrados5, cuadrados6, cuadrados7, cuadrados8]
-    for (let index = 0; index < celdas.length; index++) {
-        celdas[index].addEventListener("click",userMove)
+// Funciones
+const userMove = (e) => {
+    const tabla = e.target.innerHTML;
+    if (!tabla) {
+        e.target.innerHTML = isPlayerOne ? "❌" : "⭕";
+        isPlayerOne = !isPlayerOne;
+        checkWinner();
+        if (!activarDosJugadores) pcJuega();
     }
-   function userMove(e) {
+    mostrarCuadrito.classList.toggle("js", e.target.innerHTML === "❌");
+    mostrarCuadrito.classList.toggle("js2", e.target.innerHTML === "⭕");
+};
 
-    let tabla = e.target.innerHTML;
-    if(!tabla.length) {
-        e.target.innerHTML = isPlayerOne? '❌' : '⭕'
-        isPlayerOne = !isPlayerOne 
-        
-        winner(0,1,2);
-        winner(3,4,5);
-        winner(6,7,8);
-        winner(0,3,6);
-        winner(1,4,7);
-        winner(2,5,8);
-        winner(6,4,2);
-        winner(8,4,0);
-   }
-  if (true) {
-    pcJuega()
-  } else {
-    
-  }
-   
-   if (e.target.innerHTML=="❌") {
-    mostrarCuadrito.classList.remove("js2")
-    mostrarCuadrito.classList.add("js")
-   }else if(e.target.innerHTML=="⭕"){
-    mostrarCuadrito.classList.remove("js")
-    mostrarCuadrito.classList.add("js2")
-   }
-   }
-   function pcJuega() {
-    let casillasVacias = Array.from(celdas)
-    casillasVacias.filter(vacias=>vacias.innerHTML=="")
-    let alea  = Math.floor(Math.random() * casillasVacias.length)
-    casillasVacias[alea].innerHTML="⭕" 
-   }
-   function winner(a, b, c) {
-    if (celdas[a].innerHTML.length && celdas[a].innerHTML == celdas[b].innerHTML && celdas[a].innerHTML==celdas[c].innerHTML) {
-         console.log("GANA");  
-         alert("Ganaste") 
+const pcJuega = () => {
+    const casillasVacias = cuadrados.filter((celda) => !celda.innerHTML);
+    if (casillasVacias.length > 0) {
+        const alea = Math.floor(Math.random() * casillasVacias.length);
+        casillasVacias[alea].innerHTML = "⭕";
+        isPlayerOne = true; // Para asegurar que el jugador humano juegue después
+        checkWinner();
     }
-   }
+};
 
-
-  
-
-
-
-
-
-
-   let idioma = document.getElementById("valorIdioma")
-   let descri = document.getElementById("descri")
-   let turnoDe = document.getElementById("turnoDe")
-   let regla = document.getElementById("regla")
-    let textoING="Welcome, are you ready to defeat Michi Pepe? Welcome, are you ready to defeat Michi Pepe?. First you must know the basic rules: 1. You have to choose between the *❌* or *⭕*. 2. You can't cheat. 2. You can't cheat. 3. If you have three *❌* or *⭕* either horizontally, vertically or diagonally, you win! Good luck..."
-    let textESP ="Bienvenido, estas listo para derrotar al Michi Pepe? Primero debes de saber las reglas básicas: 1. Tienes que escoger entre la *❌* or *⭕*. 2. No puedes hacer trampa. 3. Si tienes tres *❌* o *⭕* bien sea horizontal, vertical o diagonalmente, tu ganas!. Buena suerte..."
-    let textturnoESP = "Turno de" 
-    let textturnoENG = "Turn of" 
-    let tituloESP="Reglas"
-    let tituloENG="Rules"
-   idioma.addEventListener("change",()=>{
-       const valorIdioma = idioma.value
-       console.log(valorIdioma);
-    if (valorIdioma=="esp") {
-        descri.innerHTML=textESP
-        turnoDe.innerHTML=textturnoESP
-        regla.innerHTML=tituloESP
-    }else{
-        descri.innerHTML=textoING
-        turnoDe.innerHTML=textturnoENG
-        rules.innerHTML=tituloENG
+const checkWinner = () => {
+    const winningCombos = [
+        [0, 1, 2], 
+        [3, 4, 5], 
+        [6, 7, 8], // Horizontal
+        [0, 3, 6], 
+        [1, 4, 7], 
+        [2, 5, 8], // Vertical
+        [0, 4, 8], 
+        [2, 4, 6] // Diagonal
+    ];
+    for (const combo of winningCombos) {
+        const [a, b, c] = combo;
+        if (cuadrados[a].innerHTML && cuadrados[a].innerHTML === cuadrados[b].innerHTML && cuadrados[a].innerHTML === cuadrados[c].innerHTML) {
+            alert("¡Ganaste!");
+            return;
+        }
     }
-   })
-  
+    if (cuadrados.every((celda) => celda.innerHTML)) {
+        alert("¡Empate!");
+        // Aquí puedes reiniciar el juego o realizar alguna otra acción.
+    }
+};
+
+// Event Listeners
+boton.addEventListener("click", (e) => {
+    e.preventDefault();
+});
+
+for (const celda of cuadrados) {
+    celda.addEventListener("click", userMove);
+}
+
+idioma.addEventListener("change", () => {
+    const valorIdioma = idioma.value;
+    descri.innerHTML = valorIdioma === "esp" ? texto.ESP : texto.ING;
+    turnoDe.innerHTML = valorIdioma === "esp" ? texto.turnoESP : texto.turnoING;
+    regla.innerHTML = valorIdioma === "esp" ? texto.reglaESP : texto.reglaING;
+});
+
+dosJugadores.addEventListener("click", () => {
+    activarDosJugadores = true;
+});

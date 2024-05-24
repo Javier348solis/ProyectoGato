@@ -8,20 +8,21 @@
 </head>
 <body>
 
-<audio src="/audio/Voicy_Mario Kart - Star.mp3" type="audio/mp3"></audio>
+
 
 <h1 class="titulo">TIC-TAC-TOE  </h1> 
-    
+    <!-- Cuadro de turnos -->
 <div class="contenedor-turnos">
     <h4 id="turnoDe">Turno de:</h4>
     <div class="Turno align">❌</div>
     <div class="Turno align">⭕</div>
     <div id="mostrarCuadrito" class=""></div>
 </div>
+<!-- Cambiar roles(Jugar 1vs 1 || jugar vs computadora) -->
     <div>
         <button id="changeroles">Cambiar roles</button>
     </div>
-
+    <!-- Se utiliza un div con su clase respectiva para colocar cada celda -->
     <div class="tablero">
         <div class="celda"  id="ipn0"></div>
         <div class="celda"  id="ipn1"></div> 
@@ -33,9 +34,10 @@
         <div class="celda"  id="ipn7"></div>
         <div class="celda"  id="ipn8"></div>
     </div>
+    <!-- Boton de comenzar y refrescar juego -->
       <button id="boton">Comenzar</button>
       <button onclick="document.location.reload();">Reset</button>
-      
+      <!-- Seleccionador para cambiar de idioma -->
     <select id="valorIdioma">
         <option value="ing">Inglés</option>
         <option value="esp">Español</option>
